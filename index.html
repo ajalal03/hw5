@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type = "text/javascript">
+
+function generateRandomIntInRange(min, max) 
+{
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function luckynumbermatch(w, y)
+{
+    if (w == y) {
+        return true
+    }
+    else {
+        return false;
+    }
+}
+
+ranNum = new Array;
+var a = generateRandomIntInRange(1,48);
+ranNum.push(a);
+var b = generateRandomIntInRange(1,48);
+ranNum.push(b);
+var c = generateRandomIntInRange(1,48);
+ranNum.push(c);
+var d = generateRandomIntInRange(1,48);
+ranNum.push(d);
+var e = generateRandomIntInRange(1,48);
+ranNum.push(e);
+var w = generateRandomIntInRange(1,18)
+var x = prompt("Enter winning numbers");
+var numbers_array = x.split(" ")
+numbers_array.sort(function(a,b) { return a - b; })
+var y = prompt("Enter the lucky ball number");
+
+document.write("Random Pick: " )
+for(let i = 0; i < ranNum.length; i++) 
+{
+    document.write(ranNum[i] + " ")
+}
+document.write("lucky " + w)
+ranNum.sort(function(a,b) { return a - b; });
+document.write("<br>");
+document.write("Pick sorted: " )
+
+
+for(let i = 0; i < ranNum.length; i++) 
+{
+    document.write(ranNum[i] + " ")
+}
+document.write("lucky " + w);
+document.write("<br>")
+document.write("Winning numbers sorted: ")
+for(let i = 0; i < numbers_array.length; i++) 
+{
+    document.write(numbers_array[i] + " ")
+}
+document.write("lucky " + y)
+
+
+var counter = 0;
+for(i = 0; i < ranNum.length; i++) {
+          
+        for(let j = 0; j < numbers_array.length; j++) {
+            
+            if(ranNum[i] == numbers_array[j]) {
+                counter++;
+            }
+        }
+    }
+    
+document.write("<br>")
+document.write("Numbers matching: " + counter)
+document.write("<br>")
+if (luckynumbermatch(w,y)) {
+    document.write("Lucky Ball matches")
+}
+else{
+    document.write("Lucky Ball does not match")
+}
+
+document.write("<br>")
+if (counter == 0 && w != y){
+    document.write("Your Winnings: $0")
+}
+else if (counter == 0 && w ==y){
+    document.write("Your Winnings: $4")
+}
+else if (counter == 1 && w ==y){
+    document.write("Your Winnings: $6")
+}
+else if (counter == 1 && w !=y){
+    document.write("Your Winnings: $0")
+}
+else if (counter == 2 && w !=y){
+    document.write("Your Winnings: $3")
+}
+else if (counter == 2 && w ==y){
+    document.write("Your Winnings: $25")
+}
+else if (counter == 3 && w !=y){
+    document.write("Your Winnings: $20")
+}
+else if (counter == 3 && w ==y){
+    document.write("Your Winnings: $150")
+}
+else if (counter == 4 && w !=y){
+    document.write("Your Winnings: $200")
+}
+else if (counter == 4 && w ==y){
+    document.write("Your Winnings: $5000")
+}
+else if (counter == 5 && w !=y){
+    document.write("Your Winnings: $25,000 a YEAR for LIFE")
+}
+else if (counter == 5 && w ==y){
+    document.write("Your Winnings: $7000 a WEEK for LIFE")
+}
+
+              
+</script>
+</head>
+</html>
